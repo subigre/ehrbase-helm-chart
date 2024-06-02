@@ -1,0 +1,24 @@
+apiVersion: v2
+name: ehrbase
+version: 0.1.0
+kubeVersion: ">= 1.24.0"
+description: EHRbase is the leading open source electronic health record backend based on openEHR, the future-proof standard for semantic interoperability.
+type: application
+keywords:
+  - ehrbase
+  - openehr
+  - ehr
+  - cdr
+home: https://www.ehrbase.org/
+sources:
+  - https://github.com/subigre/ehrbase-helm-chart/ehrbase
+dependencies:
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 15.x.x
+maintainers:
+  - name: Renaud Subiger
+    url: https://github.com/subigre/ehrbase-helm-chart
+icon: https://www.ehrbase.org/wp-content/uploads/2024/03/apple-icon-120x120-1.png
+appVersion: "2.2.0"
