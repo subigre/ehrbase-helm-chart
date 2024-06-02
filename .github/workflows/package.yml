@@ -1,0 +1,21 @@
+name: Package
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint chart
+        run: |
+          helm dependency update ehrbase
+          helm lint ehrbase
+
+      - name: Package chart
+        run: helm package ehrbase
